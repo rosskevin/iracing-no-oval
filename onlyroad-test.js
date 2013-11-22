@@ -10,7 +10,10 @@ var load,execute,loadAndExecute,executeJQuery;load=function(a,b,c){var d;d=docum
 
 executeJQuery(function(){
 
-    // Give some indication that this is not the full list.
+    // On membersite, make 'series' link always go to the road filter
+    $("td.simpleNav ul li a[href='/membersite/member/Series.do']").attr("href", "/membersite/member/Series.do?cat=2")
+
+    // Give some indication that this is not the full list on forum home.
     $(".homeLink").text("Forum List (road only)")
 
     function removeForumRowByText(forums){

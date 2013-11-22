@@ -3,6 +3,7 @@
 // @namespace   drinkto.me
 // @description Userscript for iRacing that hides content unrelated to road racing.  This is opinionated, so YMMV.
 // @include     http://members.iracing.com/jforum/forums/list.page
+// @include     http://members.iracing.com/membersite/member/*
 // @version     1
 // @grant       none
 // ==/UserScript==
@@ -10,6 +11,9 @@ var load,execute,loadAndExecute,executeJQuery;load=function(a,b,c){var d;d=docum
 ,executeJQuery=function(a){if(typeof jQuery=='undefined'){var jqUrl='//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js';loadAndExecute(jqUrl,a);}else{execute(a);}};
 
 executeJQuery(function(){
+
+    // On membersite, make 'series' link always go to the road filter
+    $("td.simpleNav ul li a[href='/membersite/member/Series.do']").attr("href", "/membersite/member/Series.do?cat=2")
 
     // Give some indication that this is not the full list.
     $(".homeLink").text("Forum List (road only)")
