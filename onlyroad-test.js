@@ -16,7 +16,7 @@ executeJQuery(function(){
     // Give some indication that this is not the full list on forum home.
     $(".homeLink").text("Forum List (road only)")
 
-    function removeForumRowByText(forums){
+    function toggleForumRowByText(forums){
 
         $.each(forums, function( index, value ) {
             e = $("td:contains('" + value + "')");
@@ -24,7 +24,7 @@ executeJQuery(function(){
             console.log("Removed: " + value);
         });
     }
-    function removeForumRowByPage(forums){
+    function toggleForumRowByPage(forums){
 
         $.each(forums, function( index, value ) {
             e = $("td a[href*='/" + value + ".page']");
@@ -56,8 +56,8 @@ executeJQuery(function(){
 
     var ovalHeaders = ["Oval Racing"];
 
-    removeForumRowByPage(ovalPages);
-    removeForumRowByText(ovalHeaders);
+    toggleForumRowByPage(ovalPages);
+    toggleForumRowByText(ovalHeaders);
 
 
     /******************************************************
@@ -75,7 +75,7 @@ executeJQuery(function(){
         "Club Stats",
         "Setup Garage"
     ];
-    removeForumRowByText(clubHeaders);
+    toggleForumRowByText(clubHeaders);
 
     /**
      * Racing and championships (selected ones only)
@@ -88,7 +88,7 @@ executeJQuery(function(){
         "649", // video and screenshot showcase
         "643" // world cup of iracing
     ];
-    removeForumRowByPage(racingAndChampionshipsPages);
+    toggleForumRowByPage(racingAndChampionshipsPages);
 
     /**
      * Club and Regional
@@ -96,16 +96,16 @@ executeJQuery(function(){
     var regionalHeaders = ["Regional Competitions Discussion"];
     var regionalPages = ["4111"];
 
-    removeForumRowByText(regionalHeaders);
-    removeForumRowByPage(regionalPages);
+    toggleForumRowByText(regionalHeaders);
+    toggleForumRowByPage(regionalPages);
 
     /**
      * Paint
      */
     var paintHeaders = ["The Paint Booth"];
     var paintPages = ["639", "640"];
-    removeForumRowByText(paintHeaders);
-    removeForumRowByPage(paintPages);
+    toggleForumRowByText(paintHeaders);
+    toggleForumRowByPage(paintPages);
 
     /**
      * Technical and Help
@@ -114,5 +114,5 @@ executeJQuery(function(){
         "618", // tech - other
         "617" // camera files
     ];
-    removeForumRowByPage(techPages);
+    toggleForumRowByPage(techPages);
 });
