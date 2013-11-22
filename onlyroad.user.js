@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name        iRacing road only and other cuts
+// @name        iRacing road only
 // @namespace   drinkto.me
 // @description Userscript for iRacing that hides content unrelated to road racing.  This is opinionated, so YMMV.
 // @include     http://members.iracing.com/jforum/forums/list.page
