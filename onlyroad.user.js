@@ -19,7 +19,7 @@ executeJQuery(function(){
     $(".homeLink").text("Forum List (road only)")
 
     // Show countdown timer and number registered drivers in title
-    if (racingpaneldata.session) {
+    if ("racingpaneldata" in this && racingpaneldata.session) {
 		var originalTitle = document.title;
         setInterval(function() {
             var numRegistered = $("#racingpanel_session_numregistered");
