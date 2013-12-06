@@ -18,6 +18,20 @@ executeJQuery(function(){
     // Give some indication that this is not the full list on forum home.
     $(".homeLink").text("Forum List (road only)")
 
+    // Show countdown timer and number registered drivers in title
+    if ("racingpaneldata" in this && racingpaneldata.session) {
+		var originalTitle = document.title;
+        setInterval(function() {
+            var numRegistered = $("#racingpanel_session_numregistered");
+            var countdownTimer = $("#racingpanel_countdown_timer");
+            if (numRegistered.length && countdownTimer.length) {
+                document.title = numRegistered.text() + " " + countdownTimer.text() + " " + originalTitle;
+            } else {
+                document.title = originalTitle;
+            }
+        }, 1000);
+    }
+
     function toggleForumRowByText(forums){
 
         $.each(forums, function( index, value ) {
