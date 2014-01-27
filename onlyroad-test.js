@@ -18,6 +18,23 @@ executeJQuery(function(){
 
     //-----------------------------------------------------
     //
+    //  Show countdown timer and number registered drivers in title (contributed by @kutu)
+    //
+    if ("racingpaneldata" in this && racingpaneldata.session) {
+        var originalTitle = document.title;
+        setInterval(function () {
+            var numRegistered = $("#racingpanel_session_numregistered");
+            var countdownTimer = $("#racingpanel_countdown_timer");
+            if (numRegistered.length && countdownTimer.length) {
+                document.title = numRegistered.text() + " " + countdownTimer.text() + " " + originalTitle;
+            } else {
+                document.title = originalTitle;
+            }
+        }, 1000);
+    }
+
+    //-----------------------------------------------------
+    //
     //  Only execute the following if we are on the forum list page
     //
     if(window.location.pathname.indexOf("/list.page") <= 0)
