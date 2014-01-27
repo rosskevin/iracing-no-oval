@@ -1,7 +1,7 @@
 // to debug/load and debug from external
 /*
  var e = document.createElement("script");
- e.src = 'https://dl.dropboxusercontent.com/s/a60y8az7qzbpok2/onlyroad-test.js?dl=1&token_hash=AAEIFBwdjHTl6RVToXniAM9z-m_9jjC8U86FzCIoxUGxug';
+ e.src = 'https://dl-web.dropbox.com/get/racing/apps/userscripts/iracing-road-only/onlyroad-test.js?_subject_uid=136943504&w=AADOpCS7pW2XraK2lDWqdkgDc7fOl6P7SZ16UuOh0vUsZg&dl=1';
  e.type="text/javascript";
  document.getElementsByTagName("head")[0].appendChild(e);
  */
@@ -15,6 +15,15 @@ executeJQuery(function(){
 
     // Give some indication that this is not the full list on forum home.
     $(".homeLink").text("Forum List (road only)")
+
+    //-----------------------------------------------------
+    //
+    //  Only execute the following if we are on the forum list page
+    //
+    if(window.location.pathname.indexOf("/list.page") <= 0)
+        return;
+    else
+        console.log("Skipping forum list pruning.");
 
     function toggleForumRowByText(forums){
 

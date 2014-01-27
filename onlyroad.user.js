@@ -18,6 +18,15 @@ executeJQuery(function(){
     // Give some indication that this is not the full list on forum home.
     $(".homeLink").text("Forum List (road only)")
 
+    //-----------------------------------------------------
+    //
+    //  Only execute the following if we are on the forum list page
+    //
+    if(window.location.pathname.indexOf("/list.page") <= 0)
+        return;
+    else
+        console.log("Skipping forum list pruning.");
+
     function toggleForumRowByText(forums){
 
         $.each(forums, function( index, value ) {
