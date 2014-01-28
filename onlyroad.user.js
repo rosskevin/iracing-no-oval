@@ -81,7 +81,8 @@ executeJQuery(function(){
         "631",
         "632",
         "5511",
-        "6312"
+        "6312",
+        "8711"
     ];
 
     var ovalHeaders = ["Oval Racing"];
