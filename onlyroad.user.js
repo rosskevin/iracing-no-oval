@@ -39,6 +39,28 @@ executeJQuery(function(){
 
     //-----------------------------------------------------
     //
+    //  Remove ovals and ineligible series from dropdown menu (contributed by @kutu)
+    //
+    var seriesDrop = $("#datSeriesSelectorDropdown optgroup");
+    if (seriesDrop.length) {
+        // remove ovals
+        var eligibles = seriesDrop[0].children;
+        eligibles[0].remove();
+        while (!eligibles[0].disabled)
+            eligibles[0].remove();
+        
+        // remove "No matching series"
+        var noMatchingSeries = eligibles[eligibles.length - 1];
+        if (noMatchingSeries.value == 0)
+        	noMatchingSeries.remove()
+        
+        // remove ineligible
+        seriesDrop[1].remove();
+    }
+
+
+    //-----------------------------------------------------
+    //
     //  Only execute the following if we are on the forum list page
     //
     if(window.location.pathname.indexOf("/list.page") <= 0)
