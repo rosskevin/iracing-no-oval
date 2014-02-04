@@ -16,6 +16,7 @@ executeJQuery(function(){
     // Give some indication that this is not the full list on forum home.
     $(".homeLink").text("Forum List (road only)")
 
+
     //-----------------------------------------------------
     //
     //  Show countdown timer and number registered drivers in title (contributed by @kutu)
@@ -32,6 +33,29 @@ executeJQuery(function(){
             }
         }, 1000);
     }
+
+
+    //-----------------------------------------------------
+    //
+    //  Remove ovals and ineligible series from dropdown menu (contributed by @kutu)
+    //
+    var seriesDrop = $("#datSeriesSelectorDropdown optgroup");
+    if (seriesDrop.length) {
+        // remove ovals
+        var eligibles = seriesDrop[0].children;
+        eligibles[0].remove();
+        while (!eligibles[0].disabled)
+            eligibles[0].remove();
+
+        // remove "No matching series"
+        var noMatchingSeries = eligibles[eligibles.length - 1];
+        if (noMatchingSeries.value == 0)
+            noMatchingSeries.remove()
+
+        // remove ineligible
+        seriesDrop[1].remove();
+    }
+
 
     //-----------------------------------------------------
     //
@@ -94,7 +118,7 @@ executeJQuery(function(){
     /**
      * Remove club
      */
-    // club general discussion
+        // club general discussion
     $("td:contains('Club Discussion Area')").parent().next().remove()
     var clubHeaders = [
         "Club Discussion Area",
@@ -108,7 +132,7 @@ executeJQuery(function(){
      * Racing and championships (selected ones only)
      */
     var racingAndChampionshipsPages = [
-      "644", // world champ
+        "644", // world champ
         "645", // pro
         "647", // licenses, ratings and scoring
         "648", // racing your latest race
