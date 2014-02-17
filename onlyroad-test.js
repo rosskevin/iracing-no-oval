@@ -64,11 +64,17 @@ executeJQuery(function () {
     //
     if (window.location.pathname.indexOf("/HostedSessions.do") > 0) {
 
-        // Change something to indicate this is filtered.
-        $("tr th a[name='Track']").text("Track (road only)");
+        setInterval(function () {
 
+            while($('.hosted_sessions_table_info').length <= 0){
 
-//        setInterval(function () {
+                sleep(500)
+                console.log('Waiting for table to show up...')
+            }
+
+            // Change something to indicate this is filtered.
+            $("tr th a[name='Track']").text("Track (road only)");
+
             // Generated output
             var ovalTracks = [
                 52, // Oval - Atlanta Motor Speedway - Legends Oval
@@ -142,10 +148,10 @@ executeJQuery(function () {
                     tr = $(this).parent().parent().parent().parent();
                     //console.log(tr);
                     console.log("Removing track[" + trackID + "]: " + isOval + " - " + text)
-                    tr.toggle();
+                    tr.remove();
                 }
             });
-//        }, 6000);
+        }, 1000);
     }
 
 
