@@ -20,12 +20,13 @@ It hides selected rows in:
 - Hides hosted sessions that are not on a road track.
 - Filters cars in the race panel
 
----
+# Installation
 For those of you that don't use it, I recommend the chrome extension Tampermonkey by Jan Biniok. It makes it easy to add userscripts and also triggers updating them when they are listed on userscripts.org (which this one is). You may use this script with or without it, but I do recommend it.
----
 
+# Userscripts.org
 http://userscripts.org/scripts/show/293491
 
+# Additional comments
 In it's current state, it's good for me, but it is opinionated. With a little work, it could have some toggle links to make it better for everyone.
 
 ## Contributing
