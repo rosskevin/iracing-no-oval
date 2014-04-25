@@ -252,10 +252,10 @@ executeJQuery(function () {
     /**
      * Paint
      */
-    var paintHeaders = ["The Paint Booth"];
-    var paintPages = ["639", "640"];
-    toggleForumRowByText(paintHeaders);
-    toggleForumRowByPage(paintPages);
+//    var paintHeaders = ["The Paint Booth"];
+//    var paintPages = ["639", "640"];
+//    toggleForumRowByText(paintHeaders);
+//    toggleForumRowByPage(paintPages);
 
     /**
      * Technical and Help
