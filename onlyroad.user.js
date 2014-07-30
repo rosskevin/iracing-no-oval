@@ -45,17 +45,42 @@ executeJQuery(function () {
     if (seriesDrop.length) {
         // remove ovals
         var eligibles = seriesDrop[0].children;
-        eligibles[0].remove();
-        while (!eligibles[0].disabled)
-            eligibles[0].remove();
-
-        // remove "No matching series"
-        var noMatchingSeries = eligibles[eligibles.length - 1];
-        if (noMatchingSeries.value == 0)
-            noMatchingSeries.remove()
+        var isOvalSection;
+        var toRemove = [];
+        $.each(eligibles, function (index, value) {
+            // search for oval section
+            if (value.disabled) {
+                if (/Oval$/.test(value.text)) isOvalSection = true;
+                if (/Road$/.test(value.text)) isOvalSection = false;
+            }
+            
+            if (isOvalSection || value.disabled || value.value == 0) {
+                // if we currently in oval's section
+                // or current option is disabled
+                // or current option is "No matching series"
+                toRemove.push(value);
+            } else {
+                // trim spaces
+                value.text = value.text.replace(/^\s*/, "")
+            }
+        });
+        
+        // remove not needed options
+        $.each(toRemove, function (index, value) {
+            value.remove();
+        });
 
         // remove ineligible
         seriesDrop[1].remove();
+        
+        // remove root tree and select series
+        var dropdown = seriesDrop[0].parentElement;
+        var selectedValue = dropdown.selectedOptions[0].value;
+        $("#datSeriesSelectorDropdown").append(eligibles);
+        seriesDrop[0].remove();
+        $.each(dropdown.children, function (index, value) {
+            if (value.value == selectedValue) dropdown.selectedIndex = index;
+        });
     }
 
 
