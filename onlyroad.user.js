@@ -4,7 +4,7 @@
 // @description Userscript for iRacing that hides content unrelated to road racing.  This is opinionated, so YMMV.
 // @include     http://members.iracing.com/jforum/forums/list.page
 // @include     http://members.iracing.com/membersite/member/*
-// @version     7
+// @version     8
 // @grant       none
 // ==/UserScript==
 var load,execute,loadAndExecute,executeJQuery;load=function(a,b,c){var d;d=document.createElement("script"),d.setAttribute("src",a),b!=null&&d.addEventListener("load",b),c!=null&&d.addEventListener("error",c),document.body.appendChild(d);return d},execute=function(a){var b,c;typeof a=="function"?b="("+a+")();":b=a,c=document.createElement("script"),c.textContent=b,document.body.appendChild(c);return c},loadAndExecute=function(a,b){return load(a,function(){return execute(b)})}
@@ -263,7 +263,11 @@ executeJQuery(function () {
         "647", // licenses, ratings and scoring
         "648", // racing your latest race
         "649", // video and screenshot showcase
-        "643" // world cup of iracing
+        "643", // world cup of iracing
+        "9711", // iracers with physical challenges 
+        "3511", // new tire model discussion
+        "605", // staff announcements (just maintenance) 
+        "646" // world tour and special events
     ];
     toggleForumRowByPage(racingAndChampionshipsPages);
 
