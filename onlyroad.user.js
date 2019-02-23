@@ -47,7 +47,7 @@ executeJQuery(function() {
   )
 
   // Give some indication that this is not the full list on forum home.
-  $('.homeLink').text('Forum List (road only)')
+  $('.homeLink').text('Forum List (no oval)')
 
   //-----------------------------------------------------
   //
