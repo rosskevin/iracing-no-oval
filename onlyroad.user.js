@@ -1,10 +1,10 @@
 // ==UserScript==
-// @name        iRacing road only
+// @name        iRacing no oval
 // @namespace   drinkto.me
-// @description Userscript for iRacing that hides content unrelated to road racing.  This is opinionated, so YMMV.
+// @description Userscript for iRacing that hides content that is oval-based.  This is opinionated, so YMMV.
 // @include     http://members.iracing.com/jforum/forums/list.page
 // @include     http://members.iracing.com/membersite/member/*
-// @version     8
+// @version     9
 // @grant       none
 // ==/UserScript==
 var load, execute, loadAndExecute, executeJQuery
