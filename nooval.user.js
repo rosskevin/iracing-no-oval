@@ -1,10 +1,10 @@
 // ==UserScript==
-// @name        iRacing no oval
+// @name        iracing-no-oval
 // @namespace   drinkto.me
 // @description Userscript for iRacing that hides content that is oval-based.  This is opinionated, so YMMV.
 // @include     https://members.iracing.com/jforum/forums/list.page
 // @include     https://members.iracing.com/membersite/member/*
-// @version     10
+// @version     1
 // @grant       none
 // ==/UserScript==
 var load, execute, loadAndExecute, executeJQuery
